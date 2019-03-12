@@ -19,6 +19,7 @@
                     <div>
                         <button @click="edit(item,index)">编辑</button>
                         <i></i>
+                        <!--<button @click="delAddressList(index)">删除</button>-->
                         <button @click="delAddressList(index)">删除</button>
                     </div>
                 </li>
@@ -34,7 +35,7 @@
                   :title="title"/>
         </transition>
         <transition name="slide">
-          <del-dialog v-if="showConfirmDialog"/>
+          <!--<del-dialog v-if="showConfirmDialog"/>-->
           <!--<del v-if="showConfirmDialog"/>-->
         </transition>
     </div>
@@ -43,7 +44,6 @@
 <script>
 import HandleAddress from '../components/HandleAddress'
 import DelDialog from '../components/DelDialog'
-import Del from '../components/Del'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -55,13 +55,23 @@ export default {
         }
     },
     components: {
-        Del,
         HandleAddress,
         DelDialog
     },
     methods: {
+        // delAddressList(index){
+        //     this.$store.commit('del', index)
+        // },
         delAddressList(index){
-            this.$store.commit('del', index)
+          new Promise(resolve => {
+            resolve(
+              this.$showModal({
+                title: '确认要将这个地址删除吗',
+                cancer: '取消',
+                confirm: '确认'
+              })
+            )
+          })
         },
         edit(item, index){
             console.log(index, 'edit index')
@@ -93,8 +103,6 @@ export default {
                 'showEditDialog'
             ]
         )
-    },
-    created() {
     }
 }
 </script>

@@ -1,13 +1,13 @@
 <template>
-    <div class="dialog-confirm-wrap">
+    <div class="dialog-confirm-wrap" v-if="toggle">
         <div class="dialog-confirm">
-            <h2>确认要将这个地址删除吗</h2>
+            <h2>{{dialogText.title}}</h2>
             <div>
                 <button class="button button-del" @click="cancerDel">
-                    取消
+                    {{dialogText.cancer}}
                 </button>
                 <button class="button button-save" @click="confirmDel">
-                    确认
+                    {{dialogText.confirm}}
                 </button>
             </div>
         </div>
@@ -15,20 +15,32 @@
 </template>
 
 <script>
+// import { mapGetters } from 'vuex'
 export default {
     name: "Del",
-    computed:{
+    data(){
+      return {
+        toggle: false,
+        dialogText: {
+          title: '确认要将这个地址删除吗',
+          cancer: '取消',
+          confirm: '确认'
+        }
+      }
+    },
+    computed: {
+      // ...mapGetters(
+      //   ['showConfirmDialog']
+      // )
     },
     methods: {
-      cancerDel() {
-        // this.$emit('cancel')
-        this.$store.commit('handleDelDialog', false)
-      },
-      confirmDel() {
-        // this.$emit('confirm')
-        this.$store.commit('delConfirm')
-        this.$store.commit('showEditDialog', [false])
-      }
+      // cancerDel() {
+      //   this.$store.commit('handleDelDialog', false)
+      // },
+      // confirmDel() {
+      //   this.$store.commit('delConfirm')
+      //   this.$store.commit('showEditDialog', [false])
+      // }
     }
 }
 </script>

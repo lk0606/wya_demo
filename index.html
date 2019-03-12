@@ -33,7 +33,7 @@
     };
   }
   window.addEventListener('resize',  function() {
-    throttle( function() {
+    debounce( function() {
       console.log('running')
     },200)()
   })
