@@ -6,7 +6,8 @@ import './registerServiceWorker'
 
 import '../public/css/common.scss'
 Vue.config.productionTip = false
-
+import showModal from './plug-in/showmodal'
+Vue.use(showModal)
 new Vue({
   router,
   store,

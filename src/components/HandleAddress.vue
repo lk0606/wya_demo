@@ -2,7 +2,7 @@
     <div class="dialog-wrap">
         <div class="dialog">
             <div class="title">
-                <h2>新建收货地址</h2>
+                <h2>{{title}}</h2>
                 <i @click="handleAddressDialog">×</i>
             </div>
             <ul>
@@ -15,6 +15,12 @@
                 <button class="button button-save" @click="saveAddress(newAddress)">
                     保存
                 </button>
+                <button class="button button-del"
+                        @click="delAddress"
+                        v-show="title==='修改收货地址'"
+                >
+                  删除
+                </button>
             </div>
         </div>
     </div>
@@ -22,7 +28,8 @@
 
 <script>
 export default {
-    name: "Add",
+    name: "HandleAddress",
+    props:['title', 'editAddressData'],
     data() {
         return {
             newAddress: {
@@ -30,37 +37,40 @@ export default {
                     name: '收货人',
                     type: 'text',
                     placeholder: '请填写收货人姓名',
-                    value: ''
+                    value: this.title === '新建收货地址' ? '' : this.editAddressData.name
                 },
                 tel:{
                     name: '手机号码',
                     type: 'tel',
                     placeholder: 15910012002,
-                    value: ''
+                    value: this.title === '新建收货地址' ? '' : this.editAddressData.tel
                 },
                 zone:{
                     name: '区域信息',
                     type: 'text',
                     placeholder: '请填写区域信息',
-                    value: ''
+                    value: this.title === '新建收货地址' ? '' : this.editAddressData.zone
                 },
                 address:{
                     name: '详细地址',
                     type: 'text',
                     placeholder: '请输入街道门牌信息',
-                    value: ''
+                    value: this.title === '新建收货地址' ? '' : this.editAddressData.address
                 },
                 postalCode:{
                     name: '邮政编码',
                     type: 'tel',
                     placeholder: '可以不填',
-                    value: ''
+                    value: this.title === '新建收货地址' ? '' : this.editAddressData.postalCode
                 }
             },
             isPass: false
         }
     },
     methods: {
+        delAddress(){
+          this.$store.commit('delEdit')
+        },
         getAddressInfo(){
             let address = {
                 check: false
@@ -79,8 +89,14 @@ export default {
         saveAddress() {
             this.validate(this.getAddressInfo())
             if(this.isPass){
-                this.$store.commit('handleAddressDialog', false)
-                this.$store.commit('add', this.getAddressInfo())
+                if(this.title === '新建收货地址'){
+                  this.$store.commit('handleAddressDialog', false)
+                  this.$store.commit('add', this.getAddressInfo())
+                }
+                else {
+                  this.$store.commit('edit', this.getAddressInfo())
+                  this.$store.commit('handleAddressDialog', [false])
+                }
             }
         },
         handleAddressDialog(){
@@ -169,10 +185,12 @@ export default {
         }
         >div{
             padding: .06rem .08rem .02rem;
-            /*.button{*/
-                /*border: 1px solid #75b9aa;*/
-                /*background: #48cfae;*/
-            /*}*/
+            >button{
+              margin-bottom: .06rem;
+            }
+            >button:last-of-type{
+              margin-bottom: 0;
+            }
         }
     }
 }

@@ -55,10 +55,21 @@ export default new Vuex.Store({
     },
     delEdit(sta){
       sta.addressList.splice(sta.editIndex, 1)
-      sta.showEditDialog = false
+      sta.showAddressDialog = false
     },
-    handleAddressDialog(sta, toggle){
-      sta.showAddressDialog = toggle
+    /**
+     * 新建 / 编辑
+     * @param sta
+     * @param arr toggle index
+     */
+    handleAddressDialog(sta, arr){
+      if (arr instanceof Array && arr.length === 1) {
+        sta.showAddressDialog = arr[0]
+      }
+      else {
+        sta.showAddressDialog = arr[0]
+        sta.editIndex = arr[1]
+      }
     },
     handleDelDialog(sta, toggle){
       sta.showConfirmDialog = toggle

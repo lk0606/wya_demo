@@ -29,32 +29,34 @@
             <button >添加新地址</button>
         </div>
         <transition name="slide">
-            <add v-if="showAddressDialog"/>
-            <edit
-                :editAddressData="editAddressData"
-                v-if="showEditDialog"/>
+            <handle-address v-if="showAddressDialog"
+                  :editAddressData = 'editAddressData'
+                  :title="title"/>
+        </transition>
+        <transition name="slide">
           <del-dialog v-if="showConfirmDialog"/>
+          <!--<del v-if="showConfirmDialog"/>-->
         </transition>
     </div>
 </template>
 
 <script>
-import Add from '../components/Add'
-import Edit from '../components/Edit'
+import HandleAddress from '../components/HandleAddress'
 import DelDialog from '../components/DelDialog'
+import Del from '../components/Del'
 import { mapGetters } from 'vuex'
-// import { debounce1, throttle1 } from "../utils/tools"
 
 export default {
     name: "List",
     data(){
         return {
-          editAddressData: {}
+          editAddressData: {},
+          title: ''
         }
     },
     components: {
-        Add,
-        Edit,
+        Del,
+        HandleAddress,
         DelDialog
     },
     methods: {
@@ -62,11 +64,15 @@ export default {
             this.$store.commit('del', index)
         },
         edit(item, index){
-            this.$store.commit('showEditDialog', [true, index])
+            console.log(index, 'edit index')
+            this.$store.commit('handleAddressDialog', [true, index])
+            // this.$store.commit('edit', item)
             this.editAddressData = item
+            this.title = '修改收货地址'
         },
         handleAddress(){
-            this.$store.commit('handleAddressDialog', true)
+            this.title = '新建收货地址'
+            this.$store.commit('handleAddressDialog', [true])
         },
         handleRadio(index) {
             for(let i in this.addressList) {
@@ -78,13 +84,6 @@ export default {
             }
         }
     },
-    mounted(){
-      // debounceTest()
-    },
-    updated(){
-      // debounceTest()
-      // this.debounce()
-    },
     computed: {
         ...mapGetters(
             [
@@ -94,6 +93,8 @@ export default {
                 'showEditDialog'
             ]
         )
+    },
+    created() {
     }
 }
 </script>
