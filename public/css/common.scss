@@ -1,0 +1,50 @@
+@charset "utf-8";
+/*css document*/
+body,div,p,ul,ol,li,dl,dt,dd,table,tr,td,th,form,h1,h2,h3,h4,h5,h6,input,textarea,fieldset,figure{
+  margin:0;
+  padding:0;
+}
+input,button{
+  border: 0;
+  outline: none;
+  background: none;
+}
+*{
+  box-sizing: border-box;
+}
+html,body{
+  font-size: 45vw;
+  height: 100%;
+}
+body{
+  //font-family:"微软雅黑",Arial;
+  letter-spacing: .005rem;
+}
+ul,ol,li{
+  list-style:none;
+}
+i,em{
+  font-style: normal;
+}
+a{
+  text-decoration:none;
+}
+img{
+  border: 0;
+  display: block;
+}
+.button {
+  width: 100%;
+  color: #fff;
+  padding: .06rem 0;
+  border-radius: .03rem;
+  font-size: .08rem;
+}
+.button-save{
+  border: 1px solid #75b9aa;
+  background: #48cfae;
+}
+.button-del{
+  border: 1px solid #cccccc;
+  background: #cccccc;
+}
