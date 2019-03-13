@@ -37,6 +37,7 @@
         <transition name="slide">
           <!--<del-dialog v-if="showConfirmDialog"/>-->
           <!--<del v-if="showConfirmDialog"/>-->
+          <!--<del/>-->
         </transition>
     </div>
 </template>
@@ -63,15 +64,22 @@ export default {
         //     this.$store.commit('del', index)
         // },
         delAddressList(index){
-          new Promise(resolve => {
-            resolve(
+              this.$store.commit('del', index)
+          // new Promise(resolve => {
+          //   resolve(
               this.$showModal({
-                title: '确认要将这个地址删除吗',
-                cancer: '取消',
-                confirm: '确认'
+                  title: '确认要将这个地址删除吗',
+                  cancer: '取消',
+                  confirm: '确认'
               })
-            )
-          })
+                .then(()=>{
+                  this.$store.commit('delConfirm')
+                  this.$store.commit('showEditDialog', [false])
+              })
+                .catch(()=>{
+                })
+          //   )
+          // })
         },
         edit(item, index){
             console.log(index, 'edit index')

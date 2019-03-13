@@ -3,10 +3,10 @@
         <div class="dialog-confirm">
             <h2>{{dialogText.title}}</h2>
             <div>
-                <button class="button button-del" @click="cancerDel">
+                <button class="button button-del" @click="handleDel('no')">
                     {{dialogText.cancer}}
                 </button>
-                <button class="button button-save" @click="confirmDel">
+                <button class="button button-save" @click="handleDel('yes')">
                     {{dialogText.confirm}}
                 </button>
             </div>
@@ -18,9 +18,16 @@
 // import { mapGetters } from 'vuex'
 export default {
     name: "Del",
+    props:{
+      cb: Function,
+      toggle: {
+        type : Boolean,
+        default: false
+      }
+    },
     data(){
       return {
-        toggle: false,
+        // toggle: false,
         dialogText: {
           title: '确认要将这个地址删除吗',
           cancer: '取消',
@@ -34,13 +41,12 @@ export default {
       // )
     },
     methods: {
-      // cancerDel() {
-      //   this.$store.commit('handleDelDialog', false)
-      // },
-      // confirmDel() {
-      //   this.$store.commit('delConfirm')
-      //   this.$store.commit('showEditDialog', [false])
-      // }
+      handleDel(del){
+        if (del === 'yes' || del === 'no') {
+          this.toggle = false
+          this.cb && this.cb(del)
+        }
+      }
     }
 }
 </script>
