@@ -17,7 +17,7 @@
 <script>
 // import { mapGetters } from 'vuex'
 export default {
-    name: "Del",
+    name: "Confirm",
     props:{
       cb: Function,
       toggle: {
