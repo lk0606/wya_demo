@@ -22,29 +22,24 @@
 export default {
     name: "Confirm",
     props:{
-      cb: Function,
+      // cb: Function,
       toggle: {
         type : Boolean,
         default: false
       },
-      dialogText: {
-        type: Object,
-        default () {
-          return {
-            title: '',
-            cancer: '',
-            confirm: ''
-          }
-        }
-      }
+      // dialogText: {
+      //   type: Object,
+      //   default () {
+      //     return {
+      //       title: '',
+      //       cancer: '',
+      //       confirm: ''
+      //     }
+      //   }
+      // }
     },
     data(){
       return {
-        // dialogText: {
-        //   title: '确认要将这个地址删除吗',
-        //   cancer: '取消',
-        //   confirm: '确认'
-        // }
       }
     },
     computed: {
@@ -53,11 +48,11 @@ export default {
       // )
     },
     methods: {
-      handleDel(del){
-        if (del === 'yes' || del === 'no') {
-          this.cb(del)
-        }
-      }
+      // handleDel(del){
+      //   if (del === 'yes' || del === 'no') {
+      //     this.cb(del)
+      //   }
+      // }
     }
 }
 </script>
