@@ -14,7 +14,7 @@
                         <em @click="handleRadio(index)">
                             <i v-show="item.check"></i>
                         </em>
-                        <span>设为默认</span>
+                        <span @touchstart="test($event)">设为默认</span>
                     </div>
                     <div>
                         <button @click="edit(item,index)">编辑</button>
@@ -53,12 +53,15 @@ export default {
         HandleAddress
     },
     methods: {
+        test(e){
+          console.log(e)
+        },
         delAddressList(index){
               this.$store.commit('del', index)
               this.$showModal({
-                  title: '确认要将这个地址删除吗',
-                  cancer: '取消',
-                  confirm: '确认'
+                  title: '确认要将这个地址删除吗?',
+                  cancer: '取消?',
+                  confirm: '确认?'
               })
                 .then(()=>{
                   this.$store.commit('delConfirm')

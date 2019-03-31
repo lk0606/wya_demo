@@ -4,11 +4,21 @@ let modal = null
 let handleDel = null
 showModal.install =  (Vue)=> {
   const modalConstructor = Vue.extend(modalComponent)
-  modal = new modalConstructor() // 创建toast子实例
-  modal.$mount() // 挂载实例到我们创建的DOM上
+  modal = new modalConstructor().$mount() // 创建toast子实例
+  // modal.$mount() // 挂载实例到我们创建的DOM上
   document.body.appendChild(modal.$el)
 
-  // Vue.component(modalComponent.name,modalComponent)
+
+  // $mount 另一种写法
+  // let vm = new modalConstructor({
+  //   el: document.createElement('div'),
+  //   data: {
+  //       title: '确认要将这个地址删除吗',
+  //       cancer: '取消',
+  //       confirm: '确认'
+  //   }
+  // })
+  // document.body.appendChild(vm.$el)
   /**
    * @method 提示框
    * @param {object} msg  text title/cancer/confirm
@@ -23,9 +33,9 @@ showModal.install =  (Vue)=> {
     for(let key in msg){
       modalText[key] = msg[key]
     }
-    modal.dialogText.title = msg.title
-    modal.dialogText.cancer = msg.cancer
-    modal.dialogText.confirm = msg.confirm
+    modal.dialogText.title = modalText.title
+    modal.dialogText.cancer = modalText.cancer
+    modal.dialogText.confirm = modalText.confirm
     modal.toggle = true
     modal.cb = defaultCallBack
     return new Promise((resolve, reject)=>{

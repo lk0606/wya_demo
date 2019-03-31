@@ -26,16 +26,25 @@ export default {
       toggle: {
         type : Boolean,
         default: false
+      },
+      dialogText: {
+        type: Object,
+        default () {
+          return {
+            title: '',
+            cancer: '',
+            confirm: ''
+          }
+        }
       }
     },
     data(){
       return {
-        // toggle: false,
-        dialogText: {
-          title: '确认要将这个地址删除吗',
-          cancer: '取消',
-          confirm: '确认'
-        }
+        // dialogText: {
+        //   title: '确认要将这个地址删除吗',
+        //   cancer: '取消',
+        //   confirm: '确认'
+        // }
       }
     },
     computed: {
