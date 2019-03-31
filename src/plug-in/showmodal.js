@@ -4,7 +4,7 @@ let modal = null
 let handleDel = null
 showModal.install =  (Vue)=> {
   const modalConstructor = Vue.extend(modalComponent)
-  const modal = new modalConstructor() // 创建toast子实例
+  modal = new modalConstructor() // 创建toast子实例
   modal.$mount() // 挂载实例到我们创建的DOM上
   document.body.appendChild(modal.$el)
 
@@ -35,12 +35,9 @@ showModal.install =  (Vue)=> {
       }
     })
   }
-  // 全局方法
-  // Vue.cancerDel = function () {
-  //   // 逻辑...
-  // }
 }
 function defaultCallBack(del) {
+  modal.toggle = false
   if(del === 'yes'){
     handleDel.resolve()
   }else{

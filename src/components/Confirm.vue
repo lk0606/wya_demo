@@ -1,18 +1,21 @@
-<template>
+
+  <template>
+    <transition name="slide">
     <div class="dialog-confirm-wrap" v-if="toggle">
-        <div class="dialog-confirm">
-            <h2>{{dialogText.title}}</h2>
-            <div>
-                <button class="button button-del" @click="handleDel('no')">
-                    {{dialogText.cancer}}
-                </button>
-                <button class="button button-save" @click="handleDel('yes')">
-                    {{dialogText.confirm}}
-                </button>
-            </div>
+      <div class="dialog-confirm">
+        <h2>{{dialogText.title}}</h2>
+        <div>
+          <button class="button button-del" @click="handleDel('no')">
+            {{dialogText.cancer}}
+          </button>
+          <button class="button button-save" @click="handleDel('yes')">
+            {{dialogText.confirm}}
+          </button>
         </div>
+      </div>
     </div>
-</template>
+    </transition>
+  </template>
 
 <script>
 // import { mapGetters } from 'vuex'
@@ -43,8 +46,7 @@ export default {
     methods: {
       handleDel(del){
         if (del === 'yes' || del === 'no') {
-          this.toggle = false
-          this.cb && this.cb(del)
+          this.cb(del)
         }
       }
     }
@@ -52,6 +54,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .slide-enter-active {
+    animation: slide .2s;
+  }
+  .slide-leave-active {
+    animation: slide .2s reverse;
+  }
+  @keyframes slide {
+    0% {
+      transform-origin: bottom;
+      transform: scaleY(0);
+    }
+    100% {
+      transform-origin: bottom;
+      transform: scaleY(1);
+    }
+  }
     .dialog-confirm-wrap{
         width: 100%;
         height: 100%;

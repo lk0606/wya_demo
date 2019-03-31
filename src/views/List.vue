@@ -34,17 +34,11 @@
                   :editAddressData = 'editAddressData'
                   :title="title"/>
         </transition>
-        <transition name="slide">
-          <!--<del-dialog v-if="showConfirmDialog"/>-->
-          <!--<del v-if="showConfirmDialog"/>-->
-          <!--<del/>-->
-        </transition>
     </div>
 </template>
 
 <script>
 import HandleAddress from '../components/HandleAddress'
-import DelDialog from '../components/DelDialog'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -56,17 +50,11 @@ export default {
         }
     },
     components: {
-        HandleAddress,
-        DelDialog
+        HandleAddress
     },
     methods: {
-        // delAddressList(index){
-        //     this.$store.commit('del', index)
-        // },
         delAddressList(index){
               this.$store.commit('del', index)
-          // new Promise(resolve => {
-          //   resolve(
               this.$showModal({
                   title: '确认要将这个地址删除吗',
                   cancer: '取消',
@@ -78,8 +66,6 @@ export default {
               })
                 .catch(()=>{
                 })
-          //   )
-          // })
         },
         edit(item, index){
             console.log(index, 'edit index')
