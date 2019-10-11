@@ -1,0 +1,197 @@
+//详情页底部功能区
+@media only screen and (max-width: 350px) {
+    .ml9 {
+        margin-left: 4px !important;
+    }
+    .footer {
+        width: 100%;
+        text-align: right; // position: fixed;
+        // bottom: 0;
+        // left: 0;
+        padding: .7rem .4rem;
+        background-color: #F8F8F8;
+        z-index: 99; // padding-bottom: constant(safe-area-inset-bottom);
+        // padding-bottom: env(safe-area-inset-bottom);
+        &>p {
+            margin-top: -0.3rem;
+            display: block;
+            float: left;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 0 .3rem .5rem 0;
+            &>i {
+                font-size: 1rem;
+                color: #666;
+            }
+            &>span {
+                margin-top: -0.1rem;
+                font-size: .5rem;
+                color: #333;
+            }
+        }
+        &>span {
+            color: #FF5000;
+        }
+        &>span.first {
+            font-size: .9rem;
+            line-height: 1.25rem;
+        }
+        &>span.second {
+            font-size: .6rem;
+            margin-left: -0.25rem;
+        }
+        &>.btn {
+            margin-top: -0.3rem;
+            min-width: 3.3rem;
+            height: 1.75rem;
+            font-size: .65rem;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            float: right;
+            color: #FFF;
+            background-color: #FF5000; // border: 1px solid #FF5000;
+            border-radius: .1rem;
+        }
+        &>.normal {
+            background-color: #FFF;
+            border-color: #CCC;
+            color: #333;
+        }
+        &>.share {
+            background-color: #FFF; // border: 1px solid #CCC;
+            border-radius: .1rem;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 200%;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                -webkit-transform-origin: 0 0;
+                -ms-transform-origin: 0 0;
+                transform-origin: 0 0;
+                -webkit-transform: scale(0.5, 0.5);
+                -ms-transform: scale(0.5, 0.5);
+                transform: scale(0.5, 0.5);
+                box-sizing: border-box;
+            }
+            span:first-child {
+                font-size: .6rem;
+                color: #333;
+            }
+            span:nth-child(2) {
+                font-size: .5rem;
+                color: #999;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 350px) {
+    //底部固定浮动
+    .footer {
+        width: 100%;
+        text-align: right; // position: fixed;
+        // bottom: 0;
+        // left: 0;
+        padding: .7rem .75rem;
+        background-color: #F8F8F8;
+        z-index: 99; // padding-bottom: constant(safe-area-inset-bottom);
+        // padding-bottom: env(safe-area-inset-bottom);
+        &>p {
+            margin-top: -0.3rem;
+            display: block;
+            float: left;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 0 .4rem .5rem 0;
+            min-width: 2.2rem;
+            &>i {
+                font-size: 1rem;
+                color: #666;
+            }
+            &>span {
+                margin-top: -0.1rem;
+                font-size: .5rem;
+                color: #333;
+            }
+        }
+        &>span {
+            color: #FF5000;
+        }
+        &>span.first {
+            font-size: .9rem;
+            line-height: 1.25rem;
+        }
+        &>span.second {
+            font-size: .6rem;
+            margin-left: -0.25rem;
+        }
+        &>.btn {
+            margin-top: -0.3rem;
+            min-width: 3.6rem;
+            height: 1.75rem;
+            font-size: .65rem;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            float: right;
+            color: #FFF;
+            background-color: #FF5000; // border: 1px solid #FF5000;
+            border-radius: .1rem;
+        }
+        &>.normal {
+            background-color: #FFF;
+            border-color: #CCC;
+            color: #333;
+        }
+        &>.share {
+            background-color: #FFF; // border: 1px solid #CCC;
+            border-radius: .1rem;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 200%;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                -webkit-transform-origin: 0 0;
+                -ms-transform-origin: 0 0;
+                transform-origin: 0 0;
+                -webkit-transform: scale(0.5, 0.5);
+                -ms-transform: scale(0.5, 0.5);
+                transform: scale(0.5, 0.5);
+                box-sizing: border-box;
+            }
+            span:first-child {
+                font-size: .6rem;
+                color: #333;
+            }
+            span:nth-child(2) {
+                font-size: .5rem;
+                color: #999;
+            }
+        }
+    }
+}

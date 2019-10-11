@@ -1,0 +1,59 @@
+.income-ul-list{
+    padding: 0;
+    margin: 0;
+    li{
+        padding: 0.75rem;
+        display: block;
+        position: relative;
+        &::after {
+            position:  absolute;
+            content: " ";
+            height: 1px;
+            background-color: #e5e5e5;
+            left: 0;
+            bottom: 0;
+            -webkit-transform: scaleY(.5);
+            width: 100%;
+        }
+        &:last-child{
+            &::after {
+                height: 0;
+            }
+        }
+        .h-dt{
+            display: flex;
+            padding-bottom: 0.6rem;
+            .h-text{
+                display: flex;
+                flex: 8;
+                align-items:center;
+                color: #333;
+                font-size: 0.7rem;
+                line-height: 0.85rem;
+            }
+            .h-price{
+                display: flex;
+                flex: 2;
+                align-items:center;
+                color: #FF5000;
+                font-size: 0.7rem;
+                line-height: 0.85rem;
+                text-align: right;
+            }
+        }
+        .h-dd{
+            margin-bottom: 0.3rem;
+            color: #FF5000;
+            font-size: 0.6rem;
+            display: flex;
+            align-items:center;
+            width: 100%;
+            &.h-color-3{
+                color: #333;
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}

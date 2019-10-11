@@ -8,6 +8,10 @@ import '../public/css/common.scss'
 Vue.config.productionTip = false
 import showModal from './plug-in/showmodal'
 Vue.use(showModal)
+
+import cTable from 'iscroll_table'
+Vue.use(cTable)
+
 new Vue({
   router,
   store,

@@ -1,0 +1,1056 @@
+/******weiyi color******/
+
+$app-bg-color: #F2F2F2; // 页面背景色
+$color-white: #fff;
+$color-black: #000;
+$color-blue-button: #0087FB;
+$color-c2: #c2c2c2;
+$color-33: #333;
+$color-titleBlue: #4573e3;
+$color-99: #999;
+$color-66: #666;
+$color-38: #383838;
+$color-FAFAFB: #FAFAFB;
+$baseBlueColor: #508CEE; //按钮主色
+$bottomBtnBgColor:#F8F8F8; //底部按钮背景色
+$color-e5: #E5E5E5;
+$defaultBgColor: #F2F2F2;
+// border
+$border-style: solid;
+$border-color: #e9e9e9;
+$border-radius: 4px;
+.lineBase {
+    content: '';
+    position: absolute;
+    transform-origin: 0% 0%;
+}
+
+@mixin line_horizon($borderColor) {
+    width: 100%;
+    border-top: 1px $borderColor solid;
+    transform: scaleY(0.5);
+    @extend .lineBase;
+    top: 0px;
+}
+
+@mixin line_vertical($borderColor) {
+    height: 100%;
+    border-left: 1px $borderColor solid;
+    transform: scaleX(0.5);
+    @extend .lineBase;
+    left: 0px;
+}
+
+@mixin verticalLine($borderColor) {
+    transform-origin: 0% 0%;
+    transform: scaleX(0.5);
+    border-left: 1px $borderColor solid;
+    flex: 0 0 0px;
+}
+
+@mixin horizonLine($borderColor) {
+    transform-origin: 0% 0%;
+    transform: scaleY(0.5);
+    border-top: 1px $borderColor solid;
+}
+
+@mixin single-line-ellipsis {
+    /* 文本单行省略号 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+//单行溢出显示省略号
+.single_ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//多行溢出显示省略号
+@mixin multi_ellipsis($rows) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $rows;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    appearance: normal;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px; //user-select: none;
+    /* 禁止复制、选中文本 */
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+li {
+    display: list-item;
+}
+
+input,
+textarea {
+    font: 14px 'PingFangSC-Regular', 'Microsoft YaHei', '黑体', 'Tahoma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+input:focus,
+textarea:focus,
+button {
+    outline: 0;
+    border: 0;
+}
+
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: #F2F2F2;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    padding: 0;
+    font-family: 'PingFangSC-Regular', 'Microsoft YaHei', '黑体', 'Tahoma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: #F2F2F2;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    color: #333;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+html.noScroll {
+    height: 100%;
+    body {
+        overflow-y: hidden;
+        height: 100%;
+    }
+}
+
+footer,
+header,
+section {
+    display: block;
+}
+
+section {
+    min-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+input,
+select {
+    font-size: 1rem;
+    display: inline-block;
+    background: transparent;
+    border: none;
+    vertical-align: middle;
+    color: #333;
+    width: 100%;
+}
+
+input::-webkit-input-placeholder,
+select::-webkit-select-placeholder {
+    color: #C2C2C2;
+    font-size: 15px;
+}
+
+.feature_go {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.75);
+    background-color: #fff;
+    ul {
+        display: -webkit-box;
+        li {
+            display: -webkit-box;
+            -webkit-box-flex: 1;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+            font-size: 0.8rem;
+            padding: 1rem 0;
+        }
+        li:first-child {
+            padding-left: 1rem;
+            width: calc(100% - 8rem);
+            span {
+                color: #0087FB;
+                display: inline-block;
+                font-size: 1.1rem;
+            }
+        }
+        li:last-child {
+            background-color: #FF6332;
+            color: #fff;
+            font-size: 1.1rem;
+            border: 1px solid transparent;
+            span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+em.s-xiayiye {
+    position: absolute;
+    right: 1rem;
+    color: #c2c2c2;
+}
+
+// 省略号
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+// 自动换行
+.wrap {
+    white-space: normal;
+    word-break: break-all;
+}
+
+// 隐藏
+.display_none {
+    display: none;
+}
+
+@mixin heightPercent($height: 100%) {
+    height: $height;
+}
+
+@mixin flexCount($flex) {
+    flex: $flex;
+}
+
+@mixin marginLength($margin) {
+    margin: $margin;
+}
+
+@mixin marginBottom($margin) {
+    margin-bottom: $margin;
+}
+
+@mixin fontColor($color) {
+    color: $color;
+}
+
+.hLine_e5_absolute {
+    @include line_horizon(#E5E5E5);
+}
+
+.vLine_e5_absolute {
+    @include line_vertical(#E5E5E5);
+}
+
+.hLine_e5 {
+    @include horizonLine(#E5E5E5);
+}
+
+.vLine_e5 {
+    @include verticalLine(#E5E5E5);
+}
+
+.bgWhite {
+    background-color: #fff;
+}
+
+// .row {
+//     font-size: 1.25rem;
+//     border-bottom: 1px solid rgba(194, 194, 194, 0.17);
+// }
+.flex {
+    display: flex;
+}
+
+.flex_mainSpaceBetween {
+    @extend .flex;
+    justify-content: space-between;
+}
+
+.flex2 {
+    @include flexCount(2);
+}
+
+.flex3 {
+    @include flexCount(3);
+}
+
+.flex7 {
+    @include flexCount(7);
+}
+
+.flex9 {
+    @include flexCount(9);
+}
+
+.flex1 {
+    @include flexCount(1);
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.content-around {
+    justify-content: space-around;
+}
+
+.content-center {
+    justify-content: center;
+}
+
+.content-end {
+    justify-content: flex-end;
+}
+
+.content-between {
+    justify-content: space-between;
+}
+
+.hP-6 {
+    @include heightPercent(60%);
+}
+
+.margin-1 {
+    @include marginLength(1rem);
+}
+
+.blueFont {
+    color: $color-blue-button;
+}
+
+.blueBackground {
+    background: $color-blue-button;
+}
+
+
+/*margin、padding样式*/
+
+.marginBottom-2 {
+    @include marginBottom(2rem);
+}
+
+.marginBottom-3 {
+    @include marginBottom(3rem);
+}
+
+.marginBottom-7 {
+    @include marginBottom(7rem);
+}
+
+.mt0 {
+    margin-top: 0;
+}
+
+.mt5 {
+    margin-top: .5rem;
+}
+
+.mt6 {
+    margin-top: .6rem;
+}
+
+.mt8 {
+    margin-top: .8rem;
+}
+
+.mt10 {
+    margin-top: 1rem;
+}
+
+.mt12 {
+    margin-top: 1.2rem;
+}
+
+.mt15 {
+    margin-top: 1.5rem;
+}
+
+.mt30 {
+    margin-top: 3rem;
+}
+
+.mb5 {
+    margin-bottom: .5rem;
+}
+
+.mb10 {
+    margin-bottom: 1rem;
+}
+
+.mb15 {
+    margin-bottom: 1.5rem;
+}
+
+.mb23 {
+    margin-bottom: 2.3rem;
+}
+
+.mb65 {
+    margin-bottom: 6.5rem;
+}
+
+.mtb_15 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mr_25 {
+    margin-right: 2.5rem;
+}
+
+.mr_21 {
+    margin-right: 2.1rem;
+}
+
+.mr_15 {
+    margin-right: 1.5rem;
+}
+
+.mr_8 {
+    margin-right: 0.8rem;
+}
+
+.mr_7 {
+    margin-right: 0.7rem;
+}
+
+.mr_6 {
+    margin-right: 0.6rem;
+}
+
+.mr_3 {
+    margin-right: 0.3rem;
+}
+
+.mr_4 {
+    margin-right: 0.4rem;
+}
+
+.ml_6 {
+    margin-left: 0.6rem;
+}
+
+.ml_9 {
+    margin-left: 0.9rem;
+}
+
+.ml_10 {
+    margin-left: 1rem;
+}
+
+.ml_15 {
+    margin-left: 1.5rem;
+}
+
+.pr_15 {
+    padding-right: 1.5rem;
+}
+
+.pt_15 {
+    padding-top: 1.5rem;
+}
+
+.pb_15 {
+    padding-bottom: 1.5rem;
+}
+
+.plr_15 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.plr_17 {
+    padding-left: 1.7rem;
+    padding-right: 1.7rem;
+}
+
+.plr_18 {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+}
+
+.ptb_10 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.ptb_17 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+
+/*字体、颜色样式*/
+
+.fc_c2 {
+    color: $color-c2;
+}
+
+.fc_33 {
+    color: $color-33;
+}
+
+.fc_508cee {
+    color: $baseBlueColor;
+}
+
+.fc_99 {
+    color: $color-99;
+}
+
+.fc_66 {
+    color: $color-66;
+}
+
+.fc_blue {
+    color: $baseBlueColor;
+}
+
+.fc_cc {
+    color: #ccc;
+}
+
+.fc_orange {
+    color: #FF5000;
+}
+
+.fs_10 {
+    font-size: 1rem;
+}
+
+.fs_12 {
+    font-size: 1.2rem;
+}
+
+.fs_13 {
+    font-size: 1.3rem;
+}
+
+.fs_14 {
+    font-size: 1.4rem;
+}
+
+.fs_15 {
+    font-size: 1.5rem;
+}
+
+.fs_16 {
+    font-size: 1.6rem;
+}
+
+.fs_8 {
+    font-size: 0.8rem;
+}
+
+.fs_18 {
+    font-size: 1.8rem;
+}
+
+.fs_24 {
+    font-size: 2.4rem;
+}
+
+.fcs_33_15 {
+    @extend .fc_33;
+    @extend .fs_15;
+}
+
+.fcs_99_12 {
+    @extend .fc_99;
+    @extend .fs_12;
+}
+
+.fcs_cc_15 {
+    @extend .fc_cc;
+    @extend .fs_15;
+}
+
+.fcs_blue_12 {
+    @extend .fc_blue;
+    @extend .fs_12;
+}
+
+.fcs_blue_15 {
+    @extend .fc_blue;
+    @extend .fs_15;
+}
+
+.fcs_blue_24 {
+    @extend .fc_blue;
+    @extend .fs_24;
+}
+
+.bc_e5 {
+    background-color: $color-e5;
+}
+
+.baseBlueTxtColor {
+    color: $baseBlueColor;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.float_l {
+    float: left;
+}
+
+.float_r {
+    float: right
+}
+
+.clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.multi_ellipsis-2 {
+    @include multi_ellipsis(2);
+}
+
+.single_elliphsi {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.h40 {
+    height: 4rem;
+}
+
+.h50 {
+    height: 5rem;
+}
+
+.posstion-r {
+    position: relative;
+}
+
+.selectCon {
+    width: 100%;
+    font-size: 1.5rem;
+    appearance: none;
+}
+
+.weiyi {
+    .mint-switch {
+        .mint-switch-core {
+            width: 33px;
+            height: 18.5px;
+        }
+        .mint-switch-core::before {
+            width: 31px;
+            height: 16.5px;
+        }
+        .mint-switch-core::after {
+            width: 16.5px;
+            height: 16.5px;
+        }
+        .mint-switch-input:checked+.mint-switch-core::after {
+            transform: translateX(14.5px);
+        }
+        .mint-switch-input:checked+.mint-switch-core {
+            color: $baseBlueColor;
+            background-color: $baseBlueColor;
+        }
+    }
+    .fixed-bottom {
+        position: static;
+        margin-top: 10px;
+    }
+    .line {
+        transform: scaleY(0.5);
+        transform-origin: 0 100%;
+        height: 1px;
+        background-color: $color-e5;
+    }
+    .mint-button {
+        font-size: 1.8rem;
+        height: 4.5rem;
+        display: block;
+        width: 100%;
+    }
+    .mint-msgbox {
+        width: 72%;
+        .mint-msgbox-message {
+            @extend .fc_33;
+        }
+        .mint-msgbox-content {
+            padding: 26px 25px 22px 25px;
+        }
+        .mint-msgbox-btns {
+            @extend .fs_16;
+            button {
+                @extend .fs_16;
+            }
+            .mint-msgbox-cancel {
+                @extend .fc_33;
+            }
+            .mint-msgbox-confirm {
+                @extend .fc_blue;
+            }
+        }
+    }
+    .mint-datetime-cancel {
+        float: left;
+        padding-left: 15px;
+        color: #666;
+        font-size: 15px;
+        text-align: left;
+    }
+    .mint-datetime-confirm {
+        float: right;
+        text-align: right;
+        padding-right: 15px;
+        font-size: 15px;
+        color: $baseBlueColor;
+    }
+    .mint-toast {
+        position: fixed;
+        max-width: 80%;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        box-sizing: border-box;
+        text-align: center;
+        z-index: 5000;
+        -webkit-transition: opacity .3s linear;
+        transition: opacity .3s linear
+    }
+    .mint-toast.is-placebottom {
+        bottom: 50px;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0)
+    }
+    .mint-toast.is-placemiddle {
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%)
+    }
+    .mint-toast.is-placetop {
+        top: 50px;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0)
+    }
+    .mint-toast-icon {
+        display: block;
+        text-align: center;
+        font-size: 56px
+    }
+    .mint-toast-text {
+        font-size: 14px;
+        display: block;
+        text-align: center
+    }
+    .mint-toast-pop-enter,
+    .mint-toast-pop-leave-active {
+        opacity: 0
+    }
+}
+
+.weiyi {
+    .v-button {
+        text-align: center;
+        color: #fff;
+        padding: 7px 1rem;
+        width: 100%;
+        background: $bottomBtnBgColor;
+        margin-top: 10px;
+        span {
+            display: block;
+            background: #508CEE;
+            font-size: 18px;
+            padding: 14px 0;
+            line-height: 18px;
+            border-radius: 4px;
+        }
+    }
+    .v-button-fixed {
+        position: fixed;
+        bottom: 0;
+    }
+    .v-button-disabled {
+        opacity: .4;
+    }
+}
+
+.break-word {
+    word-wrap: break-word;
+}
+
+@mixin thin-border-bottom($color, $beforeOrAfterStr: 'before') {
+    @include thin-border($color, 'bottom', 'initial', $beforeOrAfterStr);
+}
+
+@mixin thin-border-top($color, $beforeOrAfterStr: 'before') {
+    @include thin-border($color, 'top', 'initial', $beforeOrAfterStr);
+}
+
+@mixin thin-border-left($color, $beforeOrAfterStr: 'before') {
+    @include thin-border($color, 'left', 'initial', $beforeOrAfterStr);
+}
+
+@mixin thin-border-right($color, $beforeOrAfterStr: 'before') {
+    @include thin-border($color, 'right', 'initial', $beforeOrAfterStr);
+}
+
+@mixin thin-border-all($color, $borderRadius: 'initial', $beforeOrAfterStr: 'before') {
+    @include thin-border($color, 'all', $borderRadius, $beforeOrAfterStr);
+}
+
+@mixin thin-border($color, $position: 'all', $borderRadius: 'initial', $beforeOrAfterStr: 'before') {
+    position: relative;
+    &::#{$beforeOrAfterStr} {
+        content: '';
+        height: 1px;
+        width: 100%;
+        border-radius: $borderRadius;
+        pointer-events: none;
+        @if $position=='all' {
+            border: 1px solid $color;
+            height: 100%;
+            width: 100%;
+        }
+        @else {
+            border-#{$position}: 1px solid $color;
+        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        &::#{$beforeOrAfterStr} {
+            @if $position=='all' {
+                transform: scale(.5);
+                transform-origin: 0 0;
+                height: 200%;
+                width: 200%;
+            }
+            @else {
+                transform: scaleY(.5);
+                transform-origin: 0 100%;
+            }
+        }
+    }
+}
+
+@mixin placeholder($color: $input-color-placeholder, $text-indent: 0) {
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+        text-indent: $text-indent; //Safari placeholder margin issue
+    }
+}
+
+//通用margin
+.ml9 {
+    margin-left: 9px;
+}
+
+.tar {
+    text-align: right !important;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+//半像素边框
+.bth:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; // height: 1px;
+    border-top: 1px $border-style $border-color;
+    color: $border-color;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+
+.brh:after {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0; // width: 1px;
+    height: 100%;
+    border-right: 1px $border-style $border-color;
+    color: $border-color;
+    transform-origin: 100% 0;
+    transform: scaleX(0.5);
+}
+
+.bbh:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; // height: 1px;
+    border-bottom: 1px $border-style $border-color;
+    color: $border-color;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+
+.blh:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0; // width: 1px;
+    height: 100%;
+    border-left: 1px $border-style $border-color;
+    color: $border-color;
+    transform-origin: 100% 0;
+    transform: scaleX(0.5);
+}
+
+.picker-body {
+    .picker {
+        .picker-items {
+            .picker-slot {
+                .picker-item {
+                    font-size: 15px;
+                    color: #333;
+                }
+                .picker-selected {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}
+
+.picker-toolbar {
+    .mint-datetime-action {
+        width: 40%;
+    }
+    .mint-datetime-cancel {
+        color: #999;
+        text-align: left;
+        margin-left: 15px;
+    }
+    .mint-datetime-confirm {
+        color: #508CEE;
+        text-align: right;
+        margin-right: 15px;
+    }
+}
+
+.picker-items {
+    .picker-item {
+        font-size: 15px;
+    }
+    .picker-slot-wrapper {
+        .picker-selected {
+            font-size: 17px;
+            color: #333;
+        }
+    }
+}
+
+//消除ios input 内阴影
+input[type="text"] {
+    -webkit-appearance: none;
+}

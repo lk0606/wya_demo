@@ -34,6 +34,7 @@
                   :editAddressData = 'editAddressData'
                   :title="title"/>
         </transition>
+        <c-table></c-table>
     </div>
 </template>
 
